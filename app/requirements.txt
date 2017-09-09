@@ -1,0 +1,9 @@
+Django
+djangorestframework
+django-cors-headers
+django-filter
+celery
+psycopg2
+gunicorn
+django-celery
+django-celery-beat
