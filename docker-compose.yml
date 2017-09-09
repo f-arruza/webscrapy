@@ -40,6 +40,9 @@ services:
      - django
     ports:
       - "80:80"
+      - "81:81"
     volumes:
       - ./nginx/default.conf:/etc/nginx/conf.d/default.conf:ro
+      - ./nginx/client.conf:/etc/nginx/conf.d/client.conf:ro
       - ./app/static/:/usr/src/static
+      - ./client/dist/:/usr/src/client
