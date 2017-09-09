@@ -42,7 +42,7 @@ class Professor(models.Model):
     )
     curriculum = models.CharField('currículo', max_length=50, blank=True)
     grade = models.CharField('título', max_length=20, blank=True)
-    course = models.CharField('título', max_length=20, blank=True)
+    course = models.CharField('curso', max_length=20, blank=True)
     categories = (
         ('P', 'PLANTA'),
         ('C', 'CATEDRA'),
