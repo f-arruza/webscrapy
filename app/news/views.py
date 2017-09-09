@@ -1,4 +1,6 @@
+import json
 from django.shortcuts import render
+from django.http import JsonResponse, HttpResponse
 from rest_framework import viewsets
 from rest_framework.generics import GenericAPIView
 from rest_framework.mixins import ListModelMixin
@@ -13,8 +15,10 @@ class NewsViewSet(viewsets.ModelViewSet):
     queryset = News.objects.all()
 
 
-class NewsView(GenericAPIView, ListModelMixin):
+class RSSView(GenericAPIView, ListModelMixin):
     def get(self, request, *args, **kwargs):
         srv = RSSParser()
-        rs = srv.getNews(self.kwargs['filter'])
-        return JsonResponse(rs, safe=False)
+        data = srv.getNews(self.kwargs['filter'])
+
+        dump = json.dumps(data, ensure_ascii=False)
+        return HttpResponse(dump, content_type='application/json')

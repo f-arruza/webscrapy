@@ -139,7 +139,7 @@ class RSSParser():
                 if re.search(filter, entry.title,
                              flags=re.IGNORECASE) is not None:
                     ref = {
-                        'author': 'eltiempo.com',
+                        'source': 'eltiempo.com',
                         'category': entry.category,
                         'title': entry.title,
                         'pubdate': entry.published,
@@ -156,7 +156,7 @@ class RSSParser():
                 if re.search(filter, entry.title,
                              flags=re.IGNORECASE) is not None:
                     ref = {
-                        'author': 'elmundo.com',
+                        'source': 'elmundo.com',
                         'category': self.readCategory(url),
                         'title': entry.title,
                         'pubdate': entry.published,
@@ -173,7 +173,7 @@ class RSSParser():
                 if re.search(filter, entry.title,
                              flags=re.IGNORECASE) is not None:
                     ref = {
-                        'author': 'wradio.com.co',
+                        'source': 'wradio.com.co',
                         'category': entry.category,
                         'title': entry.title,
                         'pubdate': entry.published,
