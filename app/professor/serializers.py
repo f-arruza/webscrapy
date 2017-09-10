@@ -1,15 +1,5 @@
-from .models import (AcademicUnit, Employee, Professor, Coordinator)
+from .models import Employee
 from rest_framework import serializers
-
-
-class AcademicUnitSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = AcademicUnit
-        fields = (
-            'id',
-            'name',
-            'webpage',
-        )
 
 
 class EmployeeSerializer(serializers.ModelSerializer):
@@ -19,37 +9,20 @@ class EmployeeSerializer(serializers.ModelSerializer):
             'id',
             'name',
             'email',
-            'position',
+            'role',
             'local',
             'extension',
             'webpage',
             'gscholar',
             'facebook',
             'twitter',
-            'academicunit',
-        )
-
-
-class ProfessorSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Professor
-        fields = (
-            'id',
-            'employee',
+            'academic_unit',
+            'academic_unit_webpage',
             'curriculum',
             'grade',
             'course',
             'category',
-        )
-
-
-class CoordinatorSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Coordinator
-        fields = (
-            'id',
-            'professor',
             'program',
             'snies',
-            'description',
+            'program_description',
         )

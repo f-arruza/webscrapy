@@ -11,7 +11,7 @@ class News(models.Model):
     source = models.CharField('fuente', max_length=50, blank=True)
 
     class Meta:
-        verbose_name_plural = '01. Noticias'
+        verbose_name_plural = 'Noticias'
 
     def __str__(self):
         return self.name
