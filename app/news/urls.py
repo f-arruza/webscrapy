@@ -4,6 +4,7 @@ from .views import NewsViewSet, RSSView
 
 
 urlpatterns = [
+    url(r'^gnews/$', RSSView.as_view()),
     url(r'^gnews/(?P<filter>[\w|\W]+)/$', RSSView.as_view()),
 ]
 router = DefaultRouter()
