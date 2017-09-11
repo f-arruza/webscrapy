@@ -2,6 +2,8 @@
 import scrapy
 from crawler.items import AcademicUnit, EmployeeItem
 
+# RUN
+# scrapy crawl --nolog uniandes
 
 class UniandesSpider(scrapy.Spider):
     # Fields
