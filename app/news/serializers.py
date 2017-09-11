@@ -10,7 +10,5 @@ class NewsSerializer(serializers.ModelSerializer):
             'title',
             'description',
             'link',
-            'pubdate',
-            'category',
-            'source',
+            'academic_unit',
         )
