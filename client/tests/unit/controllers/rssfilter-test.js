@@ -1,6 +1,6 @@
 import { moduleFor, test } from 'ember-qunit';
 
-moduleFor('controller:rss-filter', 'Unit | Controller | rss filter', {
+moduleFor('controller:rssfilter', 'Unit | Controller | rss filter', {
   // Specify the other units that are required for this test.
   // needs: ['controller:foo']
 });
