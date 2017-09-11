@@ -10,27 +10,27 @@ class Employee(models.Model):
                                              max_length=50, blank=True)
 
     # Employee data
-    name = models.CharField('nombre', max_length=50, blank=False, unique=True)
-    email = models.CharField('correo', max_length=50, blank=True)
-    role = models.CharField('cargo', max_length=50, blank=True)
+    name = models.CharField('nombre', max_length=100, blank=False)
+    email = models.CharField('correo', max_length=100, blank=True)
+    role = models.CharField('cargo', max_length=100, blank=True)
     local = models.CharField('oficina', max_length=20, blank=True)
     extension = models.CharField('extension', max_length=10, blank=True)
-    webpage = models.CharField('página Web', max_length=50, blank=True)
+    webpage = models.CharField('página Web', max_length=100, blank=True)
     gscholar = models.CharField('google scholar', max_length=50, blank=True)
     facebook = models.CharField('facebook', max_length=20, blank=True)
     twitter = models.CharField('twitter', max_length=20, blank=True)
 
     # Professor data
-    curriculum = models.CharField('currículo', max_length=50, blank=True)
-    grade = models.CharField('título', max_length=20, blank=True)
-    course = models.CharField('curso', max_length=20, blank=True)
-    category = models.CharField('categoría', max_length=50, blank=True)
+    curriculum = models.CharField('currículo', max_length=100, blank=True)
+    grade = models.CharField('título', max_length=100, blank=True)
+    course = models.CharField('curso', max_length=100, blank=True)
+    category = models.CharField('categoría', max_length=100, blank=True)
 
     # Coordinator data
-    program = models.CharField('programa', max_length=50, blank=True)
+    program = models.CharField('programa', max_length=100, blank=True)
     snies = models.CharField('snies', max_length=20, blank=True)
     program_description = models.CharField('descripción',
-                                           max_length=20, blank=True)
+                                           max_length=100, blank=True)
 
     class Meta:
         verbose_name_plural = 'Empleados'

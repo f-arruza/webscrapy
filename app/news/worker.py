@@ -136,8 +136,8 @@ class RSSParser():
         for url in self.rss_eltiempo:
             feed = feedparser.parse(url)
             for entry in feed.entries:
-                if re.search(filter, entry.title,
-                             flags=re.IGNORECASE) is not None:
+                if filter == '' or re.search(filter, entry.title,
+                                             flags=re.IGNORECASE) is not None:
                     ref = {
                         'source': 'eltiempo.com',
                         'category': entry.category,
@@ -153,8 +153,8 @@ class RSSParser():
         for url in self.rss_elmundo:
             feed = feedparser.parse(url)
             for entry in feed.entries:
-                if re.search(filter, entry.title,
-                             flags=re.IGNORECASE) is not None:
+                if filter == '' or re.search(filter, entry.title,
+                                             flags=re.IGNORECASE) is not None:
                     ref = {
                         'source': 'elmundo.com',
                         'category': self.readCategory(url),
@@ -170,8 +170,8 @@ class RSSParser():
         for url in self.rss_wradio:
             feed = feedparser.parse(url)
             for entry in feed.entries:
-                if re.search(filter, entry.title,
-                             flags=re.IGNORECASE) is not None:
+                if filter == '' or re.search(filter, entry.title,
+                                             flags=re.IGNORECASE) is not None:
                     ref = {
                         'source': 'wradio.com.co',
                         'category': entry.category,

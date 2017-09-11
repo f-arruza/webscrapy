@@ -18,7 +18,9 @@ class NewsViewSet(viewsets.ModelViewSet):
 class RSSView(GenericAPIView, ListModelMixin):
     def get(self, request, *args, **kwargs):
         srv = RSSParser()
-        data = srv.getNews(self.kwargs['filter'])
-
+        if 'filter' in kwargs:
+            data = srv.getNews(self.kwargs['filter'])
+        else:
+            data = srv.getNews()
         dump = json.dumps(data, ensure_ascii=False)
         return HttpResponse(dump, content_type='application/json')
