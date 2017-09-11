@@ -1,0 +1,53 @@
+{{outlet}}
+<div class="wrapper wrapper-content animated fadeInRight">
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="ibox float-e-margins">
+        <div class="ibox-title">
+          <h5>Listado de Noticias de Las facultades</h5>
+          <div class="ibox-tools">
+            <a class="close-link">
+              <i class="fa fa-times"></i>
+            </a>
+          </div>
+        </div>
+        <div class="ibox-content">
+          {{#data-table}}
+            <thead>
+              <tr>
+                <th>Título</th>
+                <th>Descripción</th>
+                <th>Enlace</th>
+                <th>Fecha Publicación</th>
+                <th>Categoría</th>
+                <th>Fuente</th>
+              </tr>
+            </thead>
+            <tfoot>
+              <tr>
+                <th>Título</th>
+                <th>Descripción</th>
+                <th>Enlace</th>
+                <th>Fecha Publicación</th>
+                <th>Categoría</th>
+                <th>Fuente</th>
+              </tr>
+            </tfoot>
+            <tbody>
+              {{#each model as |new|}}
+              <tr>
+                <td>{{new.title}}</td>
+                <td>{{new.description}}</td>
+                <td>{{new.link}}</td>
+                <td>{{new.pubdate}}</td>
+                <td>{{new.category}}</td>              
+                <td>{{new.source}}</td>
+              </tr>
+              {{/each}}
+            </tbody>
+          {{/data-table}}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

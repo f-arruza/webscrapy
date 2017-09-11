@@ -7,6 +7,10 @@ const Router = Ember.Router.extend({
 });
 
 Router.map(function() {
+  this.route('rss');
+  this.route('rssfilter');
+  this.route('news');
+  this.route('employees');
 });
 
 export default Router;

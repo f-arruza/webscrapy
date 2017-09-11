@@ -11,6 +11,6 @@ class NewsSerializer(serializers.ModelSerializer):
             'description',
             'link',
             'pubdate',
-            'author',
             'category',
+            'source',
         )

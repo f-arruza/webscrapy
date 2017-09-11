@@ -14,4 +14,4 @@ class News(models.Model):
         verbose_name_plural = 'Noticias'
 
     def __str__(self):
-        return self.name
+        return self.title

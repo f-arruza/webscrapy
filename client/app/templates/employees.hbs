@@ -1,0 +1,89 @@
+{{outlet}}
+<div class="wrapper wrapper-content animated fadeInRight">
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="ibox float-e-margins">
+        <div class="ibox-title">
+          <h5>Listado de Noticias de Las facultades</h5>
+          <div class="ibox-tools">
+            <a class="close-link">
+              <i class="fa fa-times"></i>
+            </a>
+          </div>
+        </div>
+        <div class="ibox-content">
+          {{#data-table}}
+            <thead>
+              <tr>
+                <th>Nombre</th>
+                <th>Correo</th>
+                <th>Rol</th>
+                <th>Oficina</th>
+                <th>Extension</th>
+                <th>Web</th>
+                <th>Gscholar</th>
+                <th>Facebook</th>
+                <th>Twitter</th>
+                <th>Unidad Academica</th>
+                <th>Unidad Aca. Web.</th>
+                <th>Curriculum</th>
+                <th>Grado</th>
+                <th>Curso</th>
+                <th>Categoría</th>
+                <th>Programa</th>
+                <th>Snies</th>
+                <th>Desc. Prog.</th>
+              </tr>
+            </thead>
+            <tfoot>
+              <tr>
+                <th>Nombre</th>
+                <th>Correo</th>
+                <th>Rol</th>
+                <th>Oficina</th>
+                <th>Extension</th>
+                <th>Web</th>
+                <th>Gscholar</th>
+                <th>Facebook</th>
+                <th>Twitter</th>
+                <th>Unidad Academica</th>
+                <th>Unidad Aca. Web.</th>
+                <th>Curriculum</th>
+                <th>Grado</th>
+                <th>Curso</th>
+                <th>Categoría</th>
+                <th>Programa</th>
+                <th>Snies</th>
+                <th>Desc. Prog.</th>
+              </tr>
+            </tfoot>
+            <tbody>
+              {{#each model as |employee|}}
+              <tr>
+                <td>{{employee.name}}</td>
+                <td>{{employee.email}}</td>
+                <td>{{employee.role}}</td>
+                <td>{{employee.local}}</td>
+                <td>{{employee.extension}}</td>
+                <td>{{employee.webpage}}</td>
+                <td>{{employee.gscholar}}</td>
+                <td>{{employee.facebook}}</td>
+                <td>{{employee.twitter}}</td>
+                <td>{{employee.academic_unit}}</td>
+                <td>{{employee.academic_unit_webpage}}</td>
+                <td>{{employee.curriculum}}</td>
+                <td>{{employee.grade}}</td>
+                <td>{{employee.course}}</td>
+                <td>{{employee.category}}</td>
+                <td>{{employee.program}}</td>
+                <td>{{employee.snies}}</td>
+                <td>{{employee.program_description}}</td>
+              </tr>
+              {{/each}}
+            </tbody>
+          {{/data-table}}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
