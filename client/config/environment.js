@@ -46,7 +46,8 @@ module.exports = function(environment) {
   }
 
   if (environment === 'production') {
-
+    ENV.APP.API_HOST= 'http://172.24.100.95';
+    ENV.contentSecurityPolicy = {'connnect-src': "'self' http://172.24.100.95"};
   }
 
   return ENV;
