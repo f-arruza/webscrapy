@@ -20,12 +20,12 @@
           </div>
         </div>
         <div class="ibox-content">
-          <form role="form" class="form-inline">
+          <form role="form" class="form-inline" onsubmit="return false;">
               <div class="form-group">
                   <label for="exampleInputEmail2" class="sr-only">Filtro de Busqueda</label>
                   <input placeholder="Palabra clave" id="keyword" class="form-control">
               </div>
-              <a {{action "changeFilter"}} style="margin: 0px;" class="btn btn-success" type="submit">Buscar Noticias</a>
+              <a {{action "changeFilter"}} style="margin: 0px;" class="btn btn-success">Buscar Noticias</a>
           </form>
           <hr>
           {{filteredNews}}
@@ -33,22 +33,41 @@
             <thead>
               <tr>
                 <th>Título</th>
+                <th>Fecha Publicación</th>
+                <th>Enlace</th>
+                <th>Fuente</th>
               </tr>
             </thead>
             <tfoot>
               <tr>
                 <th>Título</th>
+                <th>Fecha Publicación</th>
+                <th>Enlace</th>
+                <th>Fuente</th>
               </tr>
             </tfoot>
             <tbody>
               {{#each result as |new|}}
               <tr>
                 <td>{{new.title}}</td>
+                <td>{{new.pubdate}}</td>
+                <td><a target="_blank" href={{new.link}}>Ir a la noticia</a></td>
+                <td>{{new.source}}</td>
               </tr>
               {{/each}}
             </tbody>
           </table>
         </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Cargando datos...</h5>        
       </div>
     </div>
   </div>
