@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 import scrapy
-from crawler.items import AcademicUnit, EmployeeItem
+from crawler.items import AcademicUnit, EmployeeItem, NewsItem
 
 # RUN
 # scrapy crawl --nolog uniandes
@@ -19,6 +19,7 @@ class UniandesSpider(scrapy.Spider):
             # Facultad de Ingenieria
             if "ingenieria.uniandes.edu.co" in url:
                 print("FACULTAD DE INGENIERIA: " + url)
+
                 yield scrapy.Request(url=url,
                                      callback=self.spfac_ingenieria)
 
@@ -40,6 +41,7 @@ class UniandesSpider(scrapy.Spider):
         menus = response.xpath('//*[@id="sp-main-menu"]/ul/li[5]/div/div/div/div[1]/ul/li/div/div[2]/ul/li')
         unit = response.meta['unit']
 
+        # Trabajadores y profesores
         for menu in menus:
             categ = menu.xpath('a/@href').extract_first()
             url = unit.get('webpage')[:unit.get('webpage').index('/es/')]
@@ -64,6 +66,13 @@ class UniandesSpider(scrapy.Spider):
             if request:
                 request.meta['unit'] = unit
                 yield request
+
+        # Noticias
+        urlN = "https://sistemas.uniandes.edu.co/es/inicio/noticias"
+        request = scrapy.Request(url=urlN,
+                                 callback=self.spfac_ingenieria_notic)
+        request.meta['unit'] = unit
+        yield request
 
     def spfac_ingenieria_trab01(self, response):
         empls = response.xpath('//*[@id="coordprograma"]/ul/li')
@@ -218,3 +227,22 @@ class UniandesSpider(scrapy.Spider):
                 print('Programa: ' + prog.strip())
                 print("=================")'''
                 empl.save()
+
+    def spfac_ingenieria_notic(self, response):
+        l_news = response.xpath('//*[@id="itemListPrimary"]/div[@class="itemContainer itemContainerLast"]')
+        unit = response.meta['unit']
+        url = unit.get('webpage')[:unit.get('webpage').index('/es/')]
+
+        for news in l_news:
+            title = news.xpath('div/div/h3/a/text()').extract_first()
+            link = url + news.xpath('div/div/h3/a/@href').extract_first()
+            description = news.xpath('div/div/div[@class="catItemIntroText"]/p/text()').extract_first()
+
+            dto = NewsItem(academic_unit=unit.get('name'), title=title.strip(),
+                           description=description.strip(), link=link.strip())
+            '''print(title.strip())
+            print(link.strip())
+            print(unit.get('name'))
+            print(description.strip())
+            print("==============================")'''
+            dto.save()
